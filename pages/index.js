@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import React, { useState, useEffect } from 'react'
 
 const pageNum = Math.floor(Math.random() * 6)
 const fetchU = `https://api.scryfall.com/cards/search?format=json&include_extras=false&include_multilingual=false&order=cmc&page=${pageNum}&q=c%3Ared+pow%3D3&unique=cards`
 console.log(fetchU)
 
-React.useEffect(() => {
+useEffect(() => {
     fetch(fetchU)
     .then(response => response.json())
     .then(data => {
